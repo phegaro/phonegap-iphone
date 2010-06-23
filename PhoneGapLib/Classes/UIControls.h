@@ -20,7 +20,6 @@
     UIToolbar* toolBar;
     UIBarButtonItem* toolBarTitle;
     NSMutableDictionary* toolBarItems;
-	CGRect	originalWebViewBounds;
 }
 
 /* Tab Bar methods 
@@ -28,6 +27,7 @@
 - (void)createTabBar:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)showTabBar:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)hideTabBar:(NSArray*)arguments withDict:(NSDictionary*)options;
+
 - (void)showTabBarItems:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)createTabBarItem:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)updateTabBarItem:(NSArray*)arguments withDict:(NSDictionary*)options;
@@ -36,15 +36,26 @@
 /* Tool Bar methods
  */
 - (void)createToolBar:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)showToolBar:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)hideToolBar:(NSArray*)arguments withDict:(NSDictionary*)options;
+
+- (void)createToolBarItem:(NSArray *)arguments withDict:(NSDictionary *)options;
+- (void)updateToolBarItem:(NSArray *)arguments withDict:(NSDictionary *)options;
+- (void)showToolBarItems:(NSArray *)arguments withDict:(NSDictionary *)options;
+
+/*
 - (void)setToolBarTitle:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)toolBarTitleClicked;
+*/
+
+- (void)toolBarItemSelected:(UIBarButtonItem*)item;
 
 /*
 - (void)createToolBarButton:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)createToolBarTitle:(NSArray*)arguments withDict:(NSDictionary*)options;
 */
 
-//- (void)setToolBarTitle:(NSArray*)arguments withDict:(NSDictionary*)options;
-//- (void)setToolBarButtons:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (UIBarButtonSystemItem)getSystemItemFromString:(NSString*)imageName;
+
 
 @end

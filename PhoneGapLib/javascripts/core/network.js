@@ -1,5 +1,3 @@
-
-
 /**
  * This class contains information about any NetworkStatus.
  * @constructor
@@ -33,7 +31,8 @@ function Network() {
  * @param {Object} options (isIpAddress:boolean)
  */
 Network.prototype.isReachable = function(hostName, successCallback, options) {
-	PhoneGap.exec("Network.isReachable", hostName, GetFunctionName(successCallback), options);
+  this.successCallback = successCallback;
+	PhoneGap.exec("Network.isReachable", hostName, options);
 }
 
 /**
@@ -42,6 +41,13 @@ Network.prototype.isReachable = function(hostName, successCallback, options) {
  */
 Network.prototype.updateReachability = function(reachability) {
     this.lastReachability = reachability;
+};
+
+
+Network.prototype.handleSuccess = function(status) {
+  if (this.successCallback) {
+    this.successCallback(status);
+  }
 };
 
 PhoneGap.addConstructor(function() {

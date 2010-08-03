@@ -188,7 +188,7 @@ UIControls.prototype.createToolBarItem = function(name, label, image, options) {
 
     var toolBarItem = {name: name};
     if (options && 'onSelect' in options && typeof(options['onSelect']) == 'function') {
-        toolBarItems.onSelect = options.onSelect;
+        toolBarItem.onSelect = options.onSelect;
         delete options.onSelect;
     }
     this.toolBarItems.push(toolBarItem);
